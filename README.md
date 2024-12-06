@@ -1,1 +1,1 @@
-# Logic-LLM-DPO
+# LogicLLM-DPO
