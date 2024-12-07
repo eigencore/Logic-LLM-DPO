@@ -61,7 +61,7 @@ You can run experiments with the **Standard-LM (Direct)** and **Chain-of-Thought
 ```bash
 cd ./baselines
 python llama_baseline.py \
-    --model_name "Model Name [text-davinci-003 | gpt-4]" \
+    --model_name "meta-llama/Llama-2-7b-hf" \
     --dataset_name "Dataset Name [ProntoQA | ProofWriter | FOLIO | LogicalDeduction ｜ AR-LSAT]" \
     --split dev \
     --mode "Baseline [Direct | CoT]" \
@@ -76,7 +76,7 @@ The results will be saved in `./baselines/results`.
 ```bash
 python evaluate.py \
     --dataset_name "Dataset Name [ProntoQA | ProofWriter | FOLIO | LogicalDeduction ｜ AR-LSAT]" \
-    --model_name "Model Name [text-davinci-003 | gpt-4]" \
+    --model_name "meta-llama/Llama-2-7b-hf" \
     --split dev \
     --mode "Baseline [Direct | CoT]"
 ```
