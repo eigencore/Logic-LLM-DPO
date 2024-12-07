@@ -4,7 +4,7 @@ This repository contains the data and codes for the implementation of **"LogicLL
 
 **Authors:** **Maximiliano Galindo**, **Jesus Vazquez**, **Francisco Lopez**
 
-With support and collaboration from [GIL](https://www.facebook.com/ingenieriaLinguistica/?locale=es_LA) (*Grupo de Ingeniería Lingüística*), Universidad Nacional Autónoma de México.
+With support and collaboration from [GIL](https://linktr.ee/gil_unam) (*Grupo de Ingeniería Lingüística*), Universidad Nacional Autónoma de México.
 
 ---
 
