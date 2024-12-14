@@ -128,5 +128,6 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    result_file = os.path.join(args.result_path, f'{args.mode}_{args.dataset_name}_{args.split}_{args.model_name}.json')
+    file_name = f'{args.mode}_{args.dataset_name}_{args.split}_{args.model_name.replace("/", "_")}.json'
+    result_file = os.path.join(args.result_path, file_name)
     evaluate_QA(result_file)
