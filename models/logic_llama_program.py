@@ -27,6 +27,7 @@ class LLaMALogicProgramGenerator:
         self.tokenizer = LlamaTokenizer.from_pretrained(self.model_name)
         
         # Configuración para manejo eficiente de memoria
+        
         # self.model = AutoModelForCausalLM.from_pretrained(
         #     self.model_name,
         #     device_map="auto",
