@@ -105,7 +105,8 @@ class LLaMAReasoningGraphBaseline:
                     print(f"Error in generating example: {sample['id']}")
         
         file_name = f'{self.mode}_{self.dataset_name}_{self.split}_{self.model_name.replace("/", "_")}.json'
-        
+        os.makedirs(self.save_path, exist_ok=True)
+
         with open(os.path.join(self.save_path,file_name), 'w') as f:
             json.dump(outputs, f, indent=2, ensure_ascii=False)
         
