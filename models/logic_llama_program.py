@@ -132,14 +132,12 @@ class LLaMALogicProgramGenerator:
         with open(os.path.join(self.save_path, f'{self.dataset_name}_{self.split}_{self.model_name}.json'), 'w') as f:
             json.dump(outputs, f, indent=2, ensure_ascii=False)
 
-    def batch_logic_program_generation(self, batch_size=1):
+    def batch_logic_program_generation(self, batch_size=10):
         raw_dataset = self.load_raw_dataset(self.split)
         print(f"Loaded {len(raw_dataset)} examples from {self.split} split.")
 
         outputs = []
         dataset_chunks = [raw_dataset[i:i + batch_size] for i in range(0, len(raw_dataset), batch_size)]
-        iterations = 5
-        step = 0
         for chunk in tqdm(dataset_chunks):
             full_prompts = [self.prompt_creator[self.dataset_name](example) for example in chunk]
             try:
@@ -158,9 +156,6 @@ class LLaMALogicProgramGenerator:
             except Exception as e:
                 print(f"Error in batch generation: {e}")
 
-            if step == iterations:
-                break
-            step += 1
         outputs = list({output['id']: output for output in outputs}.values())
         print(f"Generated {len(outputs)} examples.")
 
