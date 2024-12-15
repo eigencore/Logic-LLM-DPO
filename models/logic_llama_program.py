@@ -28,18 +28,16 @@ class LLaMALogicProgramGenerator:
         
         # Configuración para manejo eficiente de memoria
         
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_name,
+            device_map="auto", )
+
+        # Cuantilización opcional para hardware limitado
         # self.model = AutoModelForCausalLM.from_pretrained(
         #     self.model_name,
         #     device_map="auto",
-        #     torch_dtype=torch.float16,  # Usar menos precisión para optimizar memoria
+        #     quantization_config=bnb_config,  # Configuración de cuantilización
         # )
-
-        # Cuantilización opcional para hardware limitado
-        self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,
-            device_map="auto",
-            quantization_config=bnb_config,  # Configuración de cuantilización
-        )
 
         self.model.eval()
 
