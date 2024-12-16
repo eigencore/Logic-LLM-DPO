@@ -1,7 +1,7 @@
 import json
 import os
 from tqdm import tqdm
-from transformers import LlamaTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, BitsAndBytesConfig, AutoTokenizer
 import torch
 import argparse
 
@@ -20,14 +20,10 @@ class LLaMALogicProgramGenerator:
         self.save_path = args.save_path
         self.model_name = args.model_name
 
-        # Configurar LLaMA-2
+        self.model_name = args.model_name
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        
-        # Usa LlamaTokenizer para LLaMA-2
-        self.tokenizer = LlamaTokenizer.from_pretrained(self.model_name)
-        
-        # Configuración para manejo eficiente de memoria
- 
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, legacy=False)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_name, device_map="auto", torch_dtype=torch.float32)
         self.model.eval()
 
         self.prompt_creator = {
