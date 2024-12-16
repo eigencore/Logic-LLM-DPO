@@ -117,7 +117,7 @@ class LLaMALogicProgramGenerator:
         with open(os.path.join(self.save_path, f'{self.dataset_name}_{self.split}_{self.model_name}.json'), 'w') as f:
             json.dump(outputs, f, indent=2, ensure_ascii=False)
 
-    def batch_logic_program_generation(self, batch_size=1):
+    def batch_logic_program_generation(self, batch_size=10):
         raw_dataset = self.load_raw_dataset(self.split)
         print(f"Loaded {len(raw_dataset)} examples from {self.split} split.")
 
