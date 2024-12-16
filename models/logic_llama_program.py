@@ -23,7 +23,7 @@ class LLaMALogicProgramGenerator:
         self.model_name = args.model_name
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, legacy=False)
-        self.model = AutoModelForCausalLM.from_pretrained(self.model_name, device_map=self.device, torch_dtype=torch.float32)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_name, device_map=self.device, torch_dtype=torch.float16)
         self.model.eval()
         self.model.to(self.device)
         print(f"Using device: {self.device}")
